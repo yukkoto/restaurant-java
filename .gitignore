@@ -1,0 +1,5 @@
+target/
+exports/
+db.local.properties
+.idea/
+*.iml

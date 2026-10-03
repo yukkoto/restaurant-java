@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+<rect width="1200" height="650" fill="#f6f8fc"/>
+<g font-family="Arial, sans-serif" fill="#1e293b">
+<text x="55" y="65" font-size="30" font-weight="bold">Ресторан · схема базы данных</text>
+<text x="55" y="102" font-size="18">PostgreSQL / один клиент — несколько заказов</text>
+<rect x="55" y="160" width="395" height="260" rx="12" fill="white" stroke="#94a3b8"/>
+<path d="M67 160 H438 Q450 160 450 172 V220 H55 V172 Q55 160 67 160" fill="#183153"/>
+<text x="78" y="199" font-size="23" fill="white" font-weight="bold">customers · Клиенты</text>
+<text x="78" y="263" font-size="18">PK  id : INTEGER, IDENTITY</text>
+<text x="78" y="313" font-size="18">name : VARCHAR(100)</text>
+<text x="78" y="363" font-size="18">UK  phone : VARCHAR(12)</text>
+<rect x="675" y="160" width="470" height="380" rx="12" fill="white" stroke="#94a3b8"/>
+<path d="M687 160 H1133 Q1145 160 1145 172 V220 H675 V172 Q675 160 687 160" fill="#183153"/>
+<text x="698" y="199" font-size="23" fill="white" font-weight="bold">restaurant_orders · Заказы</text>
+<g font-size="18">
+<text x="698" y="260">PK  id : INTEGER, IDENTITY</text>
+<text x="698" y="301">FK  customer_id : INTEGER</text>
+<text x="698" y="342">table_number : INTEGER, 1..20</text>
+<text x="698" y="383">description : VARCHAR(500)</text>
+<text x="698" y="424">total : NUMERIC(10,2), &gt; 0</text>
+<text x="698" y="465">status : VARCHAR(20), 5 значений</text>
+<text x="698" y="506">created_at : TIMESTAMP</text>
+</g>
+<path d="M450 260 H562 V297 H675" fill="none" stroke="#2563eb" stroke-width="3"/>
+<path d="M460 248 V272 M468 248 V272 M655 285 L675 297 L655 309" fill="none" stroke="#2563eb" stroke-width="3"/>
+<text x="478" y="242" font-size="18">1</text><text x="613" y="276" font-size="18">0..N</text>
+<text x="475" y="350" font-size="15">customer_id → id</text>
+<text x="55" y="477" font-size="17">Все поля: NOT NULL</text>
+<text x="55" y="510" font-size="17">PK — первичный ключ; UK — уникальное поле</text>
+<text x="55" y="570" font-size="17">FK — внешний ключ. Удаление клиента с заказами запрещено (ON DELETE RESTRICT).</text>
+<text x="55" y="604" font-size="17">Статусы: NEW, COOKING, SERVED, PAID, CANCELLED.</text>
+</g></svg>
